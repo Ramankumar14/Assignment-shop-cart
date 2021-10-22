@@ -4,16 +4,17 @@ import Input from "../../UI/Input/Input";
 
 const Signin = () => {
   const history = useHistory();
+
   const submitHandler = (e) => {
     e.preventDefault();
     history.push("/");
   };
-  let loginText = "Get access to your Orders, Wishlist and Recommendations";
+  
   return (
     <div className="flex--row">
       <div className="pageDetails">
         <h1 className="pageDetails__heading">Login</h1>
-        <p className="pageDetails__desc">{loginText}</p>
+        <p className="pageDetails__desc">Get access to your Orders, Wishlist and Recommendations</p>
       </div>
       <div className="auth-form">
         <form onSubmit={submitHandler} method="POST" action="/">

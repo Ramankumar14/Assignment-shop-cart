@@ -7,7 +7,7 @@ const Category = (props) => {
     imagePosition = "reverse";
   }
   return (
-    <React.Fragment>
+    <>
      
       <div className={["category", imagePosition].join(" ")}>
         <div className="category__image">
@@ -29,7 +29,7 @@ const Category = (props) => {
         
       </div>
       <div> <hr className="horizontalRow" /></div>
-    </React.Fragment>
+    </>
   );
 };
 

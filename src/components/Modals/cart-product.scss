@@ -1,6 +1,6 @@
 @import "../../assets//scss//variables.scss";
 
-.CartProducts {
+.CartItem {
   display: flex;
   width: 100%;
   background-color: white;
@@ -13,41 +13,26 @@
     width: 15%;
     height: 15%;
   }
-  &__middleContainer {
+  &container {
     display: flex;
     flex-direction: column;
     width: 85%;
     margin-left: 1.5rem;
-    &__heading {
+    &heading {
       font-weight: 800;
-      // max-width: 230px;
     }
-    &__btn {
+    &qtybtn {
       margin: 0.8rem 0;
       display: flex;
       font-weight: 600;
       align-items: center;
       position: relative;
     }
-    // &__less {
-    //   @include set-btn-style;
-    //   border-radius: 50%;
-    //   font-size: 1.1rem;
-    //   width: 7%;
-    //   padding: revert;
-    //   width: 21px;
-    // }
-    // &__more {
-    //   @include set-btn-style;
-    //   border-radius: 50%;
-    //   font-size: 1.1rem;
-    //   padding: revert;
-    // }
   }
 }
 
 @media (max-width: $size__site_content_width) {
-  .CartProducts {
+  .CartItem {
     padding: 0.5rem;
     &__Img {
       width: 11%;
@@ -56,7 +41,7 @@
 }
 
 @media (max-width: $size__tablet_width) {
-  .CartProducts__Img {
+  .CartItem__Img {
     width: 17%;
   }
 }

@@ -14,32 +14,19 @@ function App() {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [totalPrice, setTotalPrice] = useState(0);
 
-/*   const addProductHandler =(product)=>{
-    let header = new Headers()
-    header.append( "Content-Type", "application/json")
-    header.append("Accept", "application/json")
-    header.append("Authorization", "Basic" )
-    header.append("Origin", "http://localhost:3000")
-    fetch("http://localhost:5500/addToCart", {
-      mode: "cors",
-      credentials:"include",
-      method: "POST",
-      headers:header
-    })
-    .then((response)=>response.json())
-    .then((data)=> console.log(data))
-  } */
-  const addProductHandler = (product) => {
-    var xhttp = new XMLHttpRequest();
+  const getAllProducts = (product) => {
+    var xmlHttpRequest = new XMLHttpRequest();
     function httpRequest(method, url, body) {
       return new Promise((resolve, reject) => {
-        xhttp.onreadystatechange = function () {
+        xmlHttpRequest.onreadystatechange = function () {
           if (this.readyState === 4 && this.status === 200) {
             resolve(JSON.parse(this.responseText));
+          }else if(xmlHttpRequest.readyState ===4 && xmlHttpRequest.status !== 200){
+            reject("Something went wrong- " + xmlHttpRequest)
           }
         };
-        xhttp.open(method, url, true);
-        xhttp.send(body);
+        xmlHttpRequest.open(method, url, true);
+        xmlHttpRequest.send(body);
         
       });
     }
@@ -145,7 +132,7 @@ function App() {
           <Route path="/" component={Home} exact />
           <Route
             path="/products"
-            render={() => <ProductsPage addProduct={addProductHandler} exact />}
+            render={() => <ProductsPage addProduct={getAllProducts} exact />}
           />
           <Route path="/products/:id" component={ProductsPage} />
           <Route path="/Signin" component={Signin} exact />

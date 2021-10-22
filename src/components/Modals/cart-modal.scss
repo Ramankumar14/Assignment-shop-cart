@@ -1,14 +1,11 @@
 @import "../../assets//scss//variables.scss";
 
-.cartModalWindow {
+.cart {
   width: 100%;
   max-width: $size__site_content_width;
   position: relative;
   display: flex;
-  justify-content: flex-end;
   margin: 0 auto;
-
-  justify-content: flex-end;
   &__container {
     position: relative;
     background-color: $secondary;
@@ -78,7 +75,7 @@
   .backdrop {
     background-color: rgba(0, 0, 0, 0);
   }
-  .cartModalWindow {
+  .cart {
     &__container {
       width: 100%;
     }
@@ -94,7 +91,7 @@
 }
 
 @media (max-width: $size__tablet_width) {
-  .cartModalWindow__container {
+  .cart__container {
     top: 4rem;
     height: calc(100vh - 4rem);
   }

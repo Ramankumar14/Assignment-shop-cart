@@ -28,7 +28,6 @@ $slider-height: 300px;
 .slide {
   width: $slider-width;
   height: $slider-height;
-  cursor: pointer;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -46,27 +45,28 @@ $slider-height: 300px;
 .control {
   position: absolute;
   top: 50%;
-  background: $primary;
   box-shadow: 0.1rem 0.1rem 0.6rem rgba(0, 0, 0, 0.3);
   z-index: 20;
-  background: #3737375c;
-  padding: 0.3rem;
+  background: $slider-btn;
+  padding: 0.5rem;
   color: $primary;
 }
 
 .prev {
   left: 0;
+  font-weight: 400;
   text-decoration: none;
 }
 
 .next {
   right: 0;
+  font-weight: 400;
   text-decoration: none;
 }
 .prev:hover,
 .next:hover {
   cursor: pointer;
-  background: #151515;
+  background: $btn-color;
 }
 
 .dot {
