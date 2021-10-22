@@ -10,7 +10,7 @@ const Categories =(props)=>{
 
     useEffect(() => {
         axios.get("http://localhost:5500/categories").then((response) => {
-          const outputArray = [];
+          const result = [];
           const indexArray = [];
     
           for (const key in response.data) {
@@ -21,11 +21,11 @@ const Categories =(props)=>{
           for (const key in indexArray) {
             for (const newKey in response.data) {
               if (response.data[newKey].order === indexArray[key])
-                outputArray[indexArray[key] - 1] = response.data[newKey];
+                result[indexArray[key] - 1] = response.data[newKey];
             }
           }
     
-          setCategories(outputArray);
+          setCategories(result);
         });
       }, []);
 
@@ -35,6 +35,7 @@ const Categories =(props)=>{
     
       return (
         <div className="categories">
+          
           {categories.map((category, index) => {
             return (
               <Category
@@ -48,6 +49,7 @@ const Categories =(props)=>{
               />
             );
           })}
+          
         </div>
       );
     };

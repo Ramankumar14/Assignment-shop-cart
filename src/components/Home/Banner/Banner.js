@@ -7,7 +7,6 @@ function Slider() {
     slidesData: [],
     slideIndex: 0,
   });
-  const bannerUrl = "http://localhost:5500/banners";
   const slideRef = useRef();
   const slidesRef = useRef();
   const prevRef = useRef();
@@ -16,7 +15,7 @@ function Slider() {
 
   useEffect(() => {
     axios
-      .get(bannerUrl)
+      .get("http://localhost:5500/banners")
       .then((response) => {
         setState((prevState) => {
           return { ...prevState, slidesData: response.data };
@@ -37,15 +36,10 @@ function Slider() {
       slideSize = slideRef.current.offsetWidth,
       index = 0,
       allowShift = true;
-
-    // Mouse events
     slidesRef.current.onmousedown = dragStart;
-    // Touch events
     slidesRef.current.addEventListener("touchstart", dragStart);
     slidesRef.current.addEventListener("touchend", dragEnd);
     slidesRef.current.addEventListener("touchmove", dragAction);
-
-    // Click events
     prevRef.current.addEventListener("click", function () {
       shiftSlide("-");
     });
@@ -58,7 +52,6 @@ function Slider() {
       });
     }
 
-    // Transition events
     slidesRef.current.addEventListener("transitionend", checkIndex);
 
     function dragStart(e) {
@@ -100,29 +93,29 @@ function Slider() {
       document.onmousemove = null;
     }
 
-    function shiftSlide(dir, action) {
+    function shiftSlide(slideBtn, action) {
       slidesRef.current.classList.add("shifting");
       if (allowShift) {
         if (!action) {
           posInitial = slidesRef.current.offsetLeft;
         }
-        if (dir === "+") {
+        if (slideBtn === "+") {
           slidesRef.current.style.left = posInitial - slideSize + "px";
           index++;
           setState((prevState) => {
             return { ...prevState, slideIndex: prevState.slideIndex + 1 };
           });
-        } else if (dir === "-") {
+        } else if (slideBtn === "-") {
           slidesRef.current.style.left = posInitial + slideSize + "px";
           index--;
           setState((prevState) => {
             return { ...prevState, slideIndex: prevState.slideIndex - 1 };
           });
-        } else if (dir === 0 || dir > 0) {
-          slidesRef.current.style.left = -slideSize * (dir + 1) + "px";
-          index = dir;
+        } else if (slideBtn === 0 || slideBtn > 0) {
+          slidesRef.current.style.left = -slideSize * (slideBtn + 1) + "px";
+          index = slideBtn;
           setState((prevState) => {
-            return { ...prevState, slideIndex: dir };
+            return { ...prevState, slideIndex: slideBtn };
           });
         }
       }
@@ -161,10 +154,7 @@ function Slider() {
                   ".." +
                   state.slidesData[state.slidesData.length - 1].bannerImageUrl
                 }
-                alt={
-                  state.slidesData[state.slidesData.length - 1].bannerImageAlt
-                }
-              />
+              /> 
             </span>
           ) : (
             ""
@@ -183,7 +173,6 @@ function Slider() {
                   />
                   <img
                     src={".." + item.bannerImageUrl}
-                    alt={item.bannerImageAlt}
                   />
                 </picture>
               </span>
@@ -193,11 +182,11 @@ function Slider() {
             <img
               className="slide"
               src={".." + state.slidesData[0].bannerImageUrl}
-              alt={state.slidesData[0].bannerImageAlt}
             />
           ) : (
             ""
           )}
+          
         </div>
         <a className="control prev" title="Prev" ref={prevRef} href="#home">
           PREV
@@ -205,7 +194,9 @@ function Slider() {
         <a className="control next" title="Next" ref={nextRef} href="#home">
           NEXT
         </a>
+        
       </div>
+      <hr className="horizontalRow" />
       <div className="slideBtns" ref={btnsRef}>
         {state.slidesData.map((item, ind) => {
           return (

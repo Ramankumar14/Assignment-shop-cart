@@ -1,17 +1,14 @@
-import React from "react";
 import "./input.scss";
 
-function Input(props) {
+function Input({type,placeholder,required,name,value}) {
   return (
     <input
       className="formRow__inputText"
-      type={props.type}
-      placeholder={props.placeholder}
-      required={props.required}
-      name={props.name}
-      pattern={props.pattern}
-      title={props.title}
-      value={props.value}
+      type={type}
+      value={value}
+      placeholder={placeholder}
+      required={required}
+      name={name}
     />
   );
 }

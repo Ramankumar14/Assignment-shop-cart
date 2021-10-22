@@ -1,5 +1,5 @@
 .logo{
-    width: 40%;
+    width: 35%;
     img{
         width: 100%;
     }
@@ -7,7 +7,9 @@
 
 @media (max-width:732px){
     .logo{
+        
         img{
+            padding-left: 10px;
             width: 100%;
         }
     }

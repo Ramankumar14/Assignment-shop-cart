@@ -14,22 +14,33 @@ function App() {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [totalPrice, setTotalPrice] = useState(0);
 
-  //To add Products in the cart on from Products page
+/*   const addProductHandler =(product)=>{
+    let header = new Headers()
+    header.append( "Content-Type", "application/json")
+    header.append("Accept", "application/json")
+    header.append("Authorization", "Basic" )
+    header.append("Origin", "http://localhost:3000")
+    fetch("http://localhost:5500/addToCart", {
+      mode: "cors",
+      credentials:"include",
+      method: "POST",
+      headers:header
+    })
+    .then((response)=>response.json())
+    .then((data)=> console.log(data))
+  } */
   const addProductHandler = (product) => {
+    var xhttp = new XMLHttpRequest();
     function httpRequest(method, url, body) {
       return new Promise((resolve, reject) => {
-        var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
           if (this.readyState === 4 && this.status === 200) {
             resolve(JSON.parse(this.responseText));
           }
         };
         xhttp.open(method, url, true);
-        if (method === "POST") {
-          xhttp.send(body);
-        } else {
-          xhttp.send();
-        }
+        xhttp.send(body);
+        
       });
     }
     httpRequest("POST", "http://localhost:5500/addToCart", {
@@ -55,20 +66,21 @@ function App() {
           setProductInfo(products);
         }
       } else {
-        alert("Error");
+        console.log("error")
       }
     });
   };
 
-  // To calculate the total Price of all the item in the cart
+  
+
   useEffect(() => {
     if (productsInfo.length > 0) {
       const finalPrice = productsInfo
         .map((product) => {
           return product.price * product.quantity;
         })
-        .reduce((sum, cur) => {
-          return sum + cur;
+        .reduce((total, current) => {
+          return total + current;
         });
       setTotalPrice(finalPrice);
     } else {
@@ -76,7 +88,6 @@ function App() {
     }
   }, [productsInfo]);
 
-  // To toggle cart modal window from cart button
   const openWindowCartHandler = () => {
     if (isCartOpen) {
       document.body.style.overflow = "unset";
@@ -86,13 +97,13 @@ function App() {
       setIsCartOpen(true);
     }
   };
-  //To close cart button from Close button in Cart Modal window
+
   const closeCartWindowHandler = () => {
     setIsCartOpen(false);
     document.body.style.overflow = "unset";
   };
 
-  // To increase the quantity of exisiting product present in the cart
+
   const addCartItemHandler = (productId) => {
     let products = [...productsInfo];
     const productExists = products.filter((item) => {
@@ -106,7 +117,7 @@ function App() {
     const countAfterAddingProduct = noOfCartItems + 1;
     setNoOfCartItems(countAfterAddingProduct);
   };
-  // To decrease the quantity or remove exisiting product present in the cart
+
   const removeCartItemHandler = (productId) => {
     let productData = [...productsInfo];
     const productIndex = productData.findIndex((product) => {

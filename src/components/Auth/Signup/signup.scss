@@ -26,7 +26,7 @@
   flex: 3 1;
 }
 
-.formRow {
+.rowInput {
   width: 60%;
   position: relative;
   margin-bottom: 2rem;
@@ -64,4 +64,32 @@
 .submit {
   width: 60%;
   @include set-btn-style();
+}
+
+@media(max-width:$size__tablet_width){
+  .flex--row {
+    flex-direction: column;
+  }
+  .auth-form{
+    padding: 0 40px 0 40px;
+  }
+  .rowInput{
+    width: 100%;
+  }
+  .pageDetails{
+   justify-content: space-around;
+  }
+  .pageDetails__heading {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+  .pageDetails__desc {
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+.submit-btn{
+  display: flex;
+  justify-content: space-around;
+}
 }

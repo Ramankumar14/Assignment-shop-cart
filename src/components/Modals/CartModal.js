@@ -1,14 +1,12 @@
 import React, { useRef, useEffect } from "react";
 import "./cart-modal.scss";
 import CartProduct from "./CartProduct";
-//import LowestPriceLogo from "../../assets/lowest-price.png";
 import Button from "../UI/Button/Button";
 
 function CartModal(props) {
   let windowtoggle = ["backdrop", props.openCart ? "" : "hidden"].join(" ");
   const cartCloseButton = useRef(null);
   useEffect(() => {
-    console.log(cartCloseButton.current);
     cartCloseButton.current.focus();
   }, []);
 

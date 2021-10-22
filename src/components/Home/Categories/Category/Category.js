@@ -1,4 +1,3 @@
-import React from "react";
 import "./category.scss";
 import Button from "../../../UI/Button/Button";
 
@@ -9,13 +8,13 @@ const Category = (props) => {
   }
   return (
     <React.Fragment>
-      <hr className="horizontalRow" />
+     
       <div className={["category", imagePosition].join(" ")}>
         <div className="category__image">
           <picture>
             <source media="(max-width:1024px)" srcSet={props.imageUrl} />
             <source media="(max-width:732px)" srcSet={props.imageUrl} />
-            <img src={props.imageUrl} alt={props.name} />
+            <img src={props.imageUrl} />
           </picture>
         </div>
         <div className="category__content">
@@ -27,7 +26,9 @@ const Category = (props) => {
             </Button>
           </div>
         </div>
+        
       </div>
+      <div> <hr className="horizontalRow" /></div>
     </React.Fragment>
   );
 };

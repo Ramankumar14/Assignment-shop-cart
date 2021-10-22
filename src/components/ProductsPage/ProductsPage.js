@@ -13,7 +13,6 @@ const ProductsPage = (props) => {
   const [selectedCategory, setSelectedCategory] = useState(categoryIdFromUrl);
   const [width, setWidth] = useState(window.innerWidth);
 
-  // To get Categories data from Api
   useEffect(() => {
     axios.get("http://localhost:5500/categories").then((response) => {
       const outputArray = [];
@@ -34,7 +33,6 @@ const ProductsPage = (props) => {
     });
   }, []);
 
-  // To get all the Products data or Products data based on the category selected
   useEffect(() => {
     axios.get("http://localhost:5500/products").then((response) => {
       if (selectedCategory) {
@@ -49,7 +47,6 @@ const ProductsPage = (props) => {
     });
   }, [selectedCategory]);
 
-  //To set Category in selectedCategory state from left sidebar
   const categorySelectedHandler = (categoryId) => {
     if (selectedCategory === categoryId) {
       props.history.push("/products/");
@@ -59,18 +56,17 @@ const ProductsPage = (props) => {
     }
   };
 
-  //To set Category in selectedCategory state from Dropdown
   const optionSelected = (e) => {
     let idx = e.target.selectedIndex;
     let categoryId = e.target.options[idx].value;
     props.history.push("/products/" + categoryId);
     setSelectedCategory(categoryId);
   };
-  //To update Inner Width
+
   const updateWidth = () => {
     setWidth(window.innerWidth);
   };
-  //Use effect to update state on width resize
+
   useEffect(() => {
     window.addEventListener("resize", updateWidth);
     return () => window.removeEventListener("resize", updateWidth);

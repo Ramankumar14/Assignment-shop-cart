@@ -1,8 +1,8 @@
-import React from "react";
 import "./products.scss";
 import Product from "./Product";
 
 function Products({ productsData, addProduct }) {
+
   return (
     <div className="products">
       {productsData.map((product) => {

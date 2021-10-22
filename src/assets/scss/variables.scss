@@ -20,11 +20,11 @@ $media_queries:(
     }
 }
 
-@mixin set-link-style($size) {
+@mixin set-link-style($size, $weight) {
     text-decoration: none;
     color:$font-color;
     font-size: $size;
-    font-weight: 500;
+    font-weight: $weight;
 }
 /* @mixin set-link-style-rt() {
     text-decoration: none;
@@ -46,7 +46,7 @@ $media_queries:(
     border: none;
     border-radius: 2px;
     font-size: 0.8rem;
-    padding: 0.5rem;
+    padding: 0.8rem;
     &:hover {
       cursor: pointer;
       transform: scale(0.98);

@@ -8,8 +8,8 @@
   padding: 0 0.5rem 0.5rem 0.5rem;
   margin: 1.5rem 0;
   &__name {
-    font-weight: 800;
-    height: 62px;
+    font-weight: 700;
+    height: 70px;
     font-size: 1rem;
   }
   &__image {
@@ -19,14 +19,13 @@
     }
   }
   &__description {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     background-color: $secondary;
     font-weight: 600;
     padding: 0.3rem 0.3rem 0.3rem 0.3rem;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    height: 63px;
+    height: 76px;
     margin: 0;
+    overflow: hidden;
   }
 
   &__pricewithbtn_tablet {
@@ -46,7 +45,7 @@
   hr {
     margin: 0;
     border: 0;
-    border-top: 2px solid $font-color;
+    border-top: 2px solid $secondary;
   }
   &__descriptionContainer_mobileOnly {
     display: none;
@@ -74,9 +73,9 @@
       background-color: $secondary;
     }
     &__description {
-      font-size: 0.9rem;
+      font-size: 0.8rem;
       flex-basis: 50%;
-      overflow: unset;
+    
       margin: 0;
     }
     &__image {
@@ -93,6 +92,7 @@
 
   .product__imageWithDescription {
     display: flex;
+    justify-content: space-between;
   }
 }
 
@@ -110,7 +110,8 @@
       display: flex;
       flex-direction: column;
       justify-content: space-around;
-      flex-basis: 50%;
+      flex-basis: 60%;
+      padding-left: .5rem;
     }
   }
 }

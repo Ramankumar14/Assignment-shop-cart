@@ -15,12 +15,12 @@
        
     }
     &__link{
-        @include set-link-style(0.8rem);
+        @include set-link-style(0.8rem, 500);
     }
     .cart{
         display: flex;
         align-items: center;
-
+      
     }
 }
 

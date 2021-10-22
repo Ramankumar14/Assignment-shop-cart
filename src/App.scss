@@ -1,7 +1,17 @@
-
+@import "./assets/scss/variables.scss";
 
 .main{
     max-width: 1024px;
     margin: 6rem auto 0 auto;
+   
+}
+
+@media screen and (max-width: $size__tablet_width) {
+
+    .main{
+        max-width: 1024px;
+        margin: 4rem auto 0 auto;
+    }
 
 }
+

@@ -1,4 +1,3 @@
-import React from "react";
 import { useHistory } from "react-router-dom";
 import "./signin.scss";
 import Input from "../../UI/Input/Input";
@@ -18,35 +17,35 @@ const Signin = () => {
       </div>
       <div className="auth-form">
         <form onSubmit={submitHandler} method="POST" action="/">
-          <div className="formRow flex--column">
+          <div className="rowInput flex--column">
             <Input
               type="email"
               placeholder="Email"
-              className="formRow__input-text"
+              className="rowInput__input-text"
               id="email"
               required
               name="email"
             />
-            <label htmlFor="email" className="formRow__labelHelper">
+            <label htmlFor="email" className="rowInput__labelHelper">
               Email
             </label>
           </div>
-          <div className="formRow flex--column">
+          <div className="rowInput flex--column">
             <Input
               type="password"
               name="password"
               id="password"
-              className="formRow__input-text"
+              className="rowInput__input-text"
               placeholder="Password"
               required
-              pattern="(?=.*\d)(?=.*[A-Za-z])(?!.*[\s]).{6,}"
-              title="Must contain at least one number, one alphabet and at least 6 or more characters"
             />
-            <label htmlFor="password" className="formRow__labelHelper">
+            <label htmlFor="password" className="rowInput__labelHelper">
               Password
             </label>
           </div>
+          <div className="submit-btn"> 
           <input className="submit" type="submit" value="Login" />
+          </div>
         </form>
       </div>
     </div>
