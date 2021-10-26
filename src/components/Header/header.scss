@@ -6,7 +6,7 @@
     top:0;
     left:0;
     border-bottom: 2px solid $secondary;
-    z-index: 999;
+    z-index: 99;
     &__main{
         @include set-max-width();
         display: flex;

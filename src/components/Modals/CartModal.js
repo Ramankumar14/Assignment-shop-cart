@@ -18,28 +18,28 @@ function CartModal(props) {
 
   return (
     <div className={windowtoggle}>
-      <div className="cart">
+      <div className="cartModalWindow">
         <div
           ref={cartCloseButton}
           tabIndex="-1"
-          className="cart__container"
+          className="cartModalWindow__container"
           role="dialog"
           aria-modal="true"
         >
-          <div className="cart__header">
+          <div className="cartModalWindow__header">
             <div>
               <strong>My Cart</strong>
               {`(${props.noOfCartItems} item)`}
             </div>
             <Button
-              styles="cart__headerbtn"
+              styles="cartModalWindow__headerbtn"
               click={props.closeCartWindow}
             >
               x
             </Button>
           </div>
           {props.noOfCartItems ? (
-            <div className="cart__products">
+            <div className="cartModalWindow__products">
               {props.addedProductsInCart.map((product) => {
                 return (
                   <CartProduct
@@ -53,7 +53,7 @@ function CartModal(props) {
                   />
                 );
               })}
-              <div className="cart__banner">
+              <div className="cartModalWindow__banner">
                 <h4>Low price</h4>
                 <p>you won't find it cheaper anywhere</p>
               </div>
@@ -66,19 +66,22 @@ function CartModal(props) {
             </div>
           )}
           {props.addedProductsInCart.length === 0 ? (
-            <div className="cart__footer">
+            <div className="cartModalWindow__footer">
               <Button
                 keyDown={CheckoutHandler}
-                styles="cart__checkout"
+                styles="cartModalWindow__checkout"
                 click={props.cartCheckout}
               >
                 <span style={{ margin: "auto" }}>Start Shopping</span>
               </Button>
             </div>
           ) : (
-            <div className="cart__footer">
+            <div className="cartModalWindow__footer">
+              <div className="cartModalWindow__promo">
+                Promo code can be applied on payment page
+              </div>
               <Button
-                styles="cart__checkout"
+                styles="cartModalWindow__checkout"
                 click={props.cartCheckout}
                 keyDown={CheckoutHandler}
                 ariaLabel={`Total Price for all products is ${props.finalPrice}. Proceed to checkout Page`}

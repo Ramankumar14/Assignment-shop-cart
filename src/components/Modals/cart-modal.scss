@@ -1,22 +1,23 @@
 @import "../../assets//scss//variables.scss";
 
-.cart {
+.cartModalWindow {
   width: 100%;
   max-width: $size__site_content_width;
   position: relative;
   display: flex;
+  justify-content: flex-end;
   margin: 0 auto;
   &__container {
     position: relative;
     background-color: $secondary;
-    height: calc(100vh - 5.75rem);
+    height: calc(100vh - 6rem);
     overflow: hidden;
     width: 40%;
-    top: 5.75rem;
+    top: 6rem;
 
   }
   &__header {
-    background-color: black;
+    background-color: #000000;
     color: $primary;
     display: flex;
     justify-content: space-between;
@@ -28,17 +29,14 @@
     background-color: $primary;
     font-weight: 600;
     display: flex;
+    justify-content: space-evenly;
     width: 95%;
-    margin: 0.5rem auto;
+    margin: 0.5rem ;
     border-radius: 5px;
     padding: 5px;
-
-    p {
-      padding-left: 10px;
-    }
   }
   &__products {
-    height: calc(100vh - 16rem);
+    height: calc(100vh - 15rem);
     overflow-y: scroll;
     &::-webkit-scrollbar {
       display: none;
@@ -55,7 +53,6 @@
     font-weight: 600;
     margin: 0.5rem 0;
   }
-
 }
 
 .backdrop {
@@ -65,7 +62,7 @@
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.7);
-  z-index: 1200;
+  z-index: 200;
 }
 .hidden {
   display: none;
@@ -73,9 +70,9 @@
 
 @media (max-width: $size__site_content_width) {
   .backdrop {
-    background-color: rgba(0, 0, 0, 0);
+    background-color: #000000
   }
-  .cart {
+  .cartModalWindow {
     &__container {
       width: 100%;
     }
@@ -91,7 +88,7 @@
 }
 
 @media (max-width: $size__tablet_width) {
-  .cart__container {
+  .cartModalWindow__container {
     top: 4rem;
     height: calc(100vh - 4rem);
   }

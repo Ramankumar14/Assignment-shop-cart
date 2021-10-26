@@ -1,7 +1,7 @@
 @import "../../../assets/scss/variables.scss";
 
 
-@media (max-width: 732px) {
+@media (max-width: $size__tablet_width) {
   .CategoryDropdown {
     display: block;
 

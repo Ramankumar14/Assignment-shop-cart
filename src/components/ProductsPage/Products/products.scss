@@ -1,3 +1,4 @@
+@import "../../../assets/scss/variables.scss";
 .products {
     width: 78%;
     display: flex;
@@ -6,13 +7,13 @@
     align-items: center;
   }
   
-  @media (max-width: 1024px) {
+  @media (max-width: $size__site_content_width) {
     .products {
       width: 80%;
     }
   }
   
-  @media (max-width: 732px) {
+  @media (max-width: $size__tablet_width) {
     .products {
       width: 100%;
     }

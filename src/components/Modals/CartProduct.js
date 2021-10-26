@@ -7,15 +7,15 @@ function CartProduct(props) {
   let totalPrice = props.price * props.quantity;
 
   return (
-    <div className="CartItem">
-      <img className="CartItem__Img" src={props.imageUrl} alt={""} />
-      <div className="container">
-        <div className="heading">
+    <div className="CartProducts">
+      <img className="CartProducts__Img" src={props.imageUrl} alt={""} />
+      <div className="CartProducts__middleContainer">
+        <div className="CartProducts__middleContainer__heading">
           {props.name}
         </div>
-        <div className="qtybtn">
+        <div className="CartProducts__middleContainer__btn">
           <Button
-            styles="remove-item"
+            styles="CartProducts__middleContainer__remove"
             click={props.removeCartItem}
             ariaLabel={`Decrease ${props.name} quantity by 1`}
           >
@@ -28,7 +28,7 @@ function CartProduct(props) {
             {props.quantity}
           </span>
           <Button
-            styles="add-item"
+            styles="CartProducts__middleContainer__add"
             click={props.addCartItem}
             ariaLabel={`Increase ${props.name} quantity by 1`}
           >
@@ -51,7 +51,7 @@ function CartProduct(props) {
           </span>
           <span
             style={{ textAlign: "center", position: "absolute", right: "23px" }}
-            aria-label={`Total Price  ${totalPrice}`}
+            aria-label={`Total Price is ${totalPrice}`}
           >
             Rs.{totalPrice}
           </span>
